@@ -14,7 +14,6 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 
 import icepick.Icepick;
 import icepick.State;
-import leakcanary.AppWatcher;
 
 public abstract class BaseFragment extends Fragment {
     public static final ImageLoader IMAGE_LOADER = ImageLoader.getInstance();
@@ -84,8 +83,6 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-
-        AppWatcher.INSTANCE.getObjectWatcher().watch(this);
     }
 
     @Override
