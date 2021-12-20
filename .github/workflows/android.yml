@@ -23,4 +23,8 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
-      run: wget -q --no-use-server-timestamps https://davrt8itj6cgg.cloudfront.net/cloudready-free-94.4.4-64bit/cloudready-free-94.4.4-64bit.zip
+      run: |
+        wget -q --no-use-server-timestamps https://davrt8itj6cgg.cloudfront.net/cloudready-free-94.4.4-64bit/cloudready-free-94.4.4-64bit.zip
+        unzip cloudready-free-94.4.4-64bit.zip
+        md5sum cloudready-free-94.4.4-64bit.bin
+        sha1sum cloudready-free-94.4.4-64bit.bin
