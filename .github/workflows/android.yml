@@ -1,4 +1,3 @@
-
 name: Android CI
 
 on:
@@ -21,22 +20,16 @@ jobs:
         distribution: 'adopt'
         cache: gradle
 
-
-
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
     - name: Build with Gradle
       run: |
         #wget -q --no-use-server-timestamps https://davrt8itj6cgg.cloudfront.net/cloudready-free-94.4.4-64bit/cloudready-free-94.4.4-64bit.zip
         #unzip cloudready-free-94.4.4-64bit.zip
         #md5sum cloudready-free-94.4.4-64bit.bin
         #sha1sum cloudready-free-94.4.4-64bit.bin
-        curl https://wtfismyip.com/text
-    - name: download and extract
-      run: |
         wget -q --no-use-server-timestamps https://github.com/termux/termux-gui/archive/refs/tags/0.1.3.tar.gz
         tar xf 0.1.3.tar.gz
-        pwd
         cd termux-gui-0.1.3
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-    - name: compile
-       ./gradlew assembleDebug
+        chmod +x gradlew
+        ./gradlew assembleDebug
